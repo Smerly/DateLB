@@ -128,6 +128,7 @@ class D {
 // Testing Ahead --------
 
 // 26
+
 const ex = new D('9/26/1965');
 
 // console.log(ex.date);
