@@ -1,5 +1,7 @@
+/* eslint-disable no-tabs */
+/* eslint-disable indent */
+/* eslint-disable no-undef */
 const date = require('./index');
-const unixEpoch = new date.D(0);
 
 test('Test Year', () => {
 	const e = new date.D('9/26/1965');

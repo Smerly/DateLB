@@ -1,12 +1,10 @@
+/* eslint-disable no-tabs */
+/* eslint-disable indent */
 const moment = require('moment');
 
 class D {
 	constructor(...args) {
-		this._date = new Date(...args);
-	}
-
-	get year() {
-		return this._date.getFullYear();
+		this.date = new Date(...args);
 	}
 
 	// set year() {
@@ -14,11 +12,11 @@ class D {
 	// }
 
 	get year() {
-		return this._date.getFullYear();
+		return this.date.getFullYear();
 	}
 
 	get yr() {
-		return this._date.getFullYear() % 100;
+		return this.date.getFullYear() % 100;
 	}
 
 	get month() {
@@ -36,12 +34,12 @@ class D {
 			'November',
 			'December',
 		];
-		const actualMonth = months[this._date.getMonth()];
+		const actualMonth = months[this.date.getMonth()];
 		return actualMonth;
 	}
 
 	get mon() {
-		return this._date.getMonth();
+		return this.date.getMonth();
 	}
 
 	get day() {
@@ -54,7 +52,7 @@ class D {
 			'Thursday',
 			'Friday',
 		];
-		const theDay = days[this._date.getDay()];
+		const theDay = days[this.date.getDay()];
 		return theDay;
 	}
 
@@ -69,10 +67,12 @@ class D {
 			'Friday',
 			'Saturday',
 		];
-		const theDay = days[this._date.getDay()];
-		var i;
+		const theDay = days[this.date.getDay()];
+		let i;
+		// eslint-disable-next-line no-plusplus
 		for (i = 0; i < theDay.length; i++) {
 			if (i < 3) {
+				// eslint-disable-next-line no-multi-assign
 				newDay = newDay += theDay[i];
 			}
 		}
@@ -81,26 +81,26 @@ class D {
 	}
 
 	get hours() {
-		return this._date.getHours();
+		return this.date.getHours();
 	}
+
 	get seconds() {
-		return this._date.getSeconds();
+		return this.date.getSeconds();
 	}
 
 	get date() {
 		let dated = '';
-		const x = this._date.getDate();
+		const x = this.date.getDate();
 		if (x < 10) {
-			dated = '0' + this._date.getDate();
+			dated = `0${this.date.getDate()}`;
 			return dated;
-		} else {
-			// return this._date.getDate();
-			return this._date.getDate();
 		}
+		// return this._date.getDate();
+		return this.date.getDate();
 	}
 
 	get dt() {
-		return this._date.getDate();
+		return this.date.getDate();
 	}
 
 	/**
@@ -109,7 +109,7 @@ class D {
 	 * @returns {String} returns the date of that object in the given format.
 	 */
 	format(dates) {
-		let m = moment(this._date).format(dates);
+		const m = moment(this.date).format(dates);
 		return m;
 	}
 
@@ -128,10 +128,11 @@ class D {
 // Testing Ahead --------
 
 // 26
-ex = new D('9/26/1965');
+const ex = new D('9/26/1965');
 
 // console.log(ex.date);
 
+// eslint-disable-next-line no-console
 console.log(ex.format('y/m/d'));
 
 // console.log(ex.when());
