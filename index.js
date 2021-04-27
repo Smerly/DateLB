@@ -1,22 +1,23 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-tabs */
 /* eslint-disable indent */
 const moment = require('moment');
 
 class D {
 	constructor(...args) {
-		this.date = new Date(...args);
+		this._date = new Date(...args);
 	}
 
-	// set year() {
-	// 	return this._date.setFullYear(year);
-	// }
+	set year(year) {
+		return this._date.setFullYear(year);
+	}
 
 	get year() {
-		return this.date.getFullYear();
+		return this._date.getFullYear();
 	}
 
 	get yr() {
-		return this.date.getFullYear() % 100;
+		return this._date.getFullYear() % 100;
 	}
 
 	get month() {
@@ -34,12 +35,12 @@ class D {
 			'November',
 			'December',
 		];
-		const actualMonth = months[this.date.getMonth()];
+		const actualMonth = months[this._date.getMonth()];
 		return actualMonth;
 	}
 
 	get mon() {
-		return this.date.getMonth();
+		return this._date.getMonth();
 	}
 
 	get day() {
@@ -52,7 +53,7 @@ class D {
 			'Thursday',
 			'Friday',
 		];
-		const theDay = days[this.date.getDay()];
+		const theDay = days[this._date.getDay()];
 		return theDay;
 	}
 
@@ -67,7 +68,7 @@ class D {
 			'Friday',
 			'Saturday',
 		];
-		const theDay = days[this.date.getDay()];
+		const theDay = days[this._date.getDay()];
 		let i;
 		// eslint-disable-next-line no-plusplus
 		for (i = 0; i < theDay.length; i++) {
@@ -81,26 +82,26 @@ class D {
 	}
 
 	get hours() {
-		return this.date.getHours();
+		return this._date.getHours();
 	}
 
 	get seconds() {
-		return this.date.getSeconds();
+		return this._date.getSeconds();
 	}
 
 	get date() {
 		let dated = '';
-		const x = this.date.getDate();
+		const x = this._date.getDate();
 		if (x < 10) {
-			dated = `0${this.date.getDate()}`;
+			dated = `0${this._date.getDate()}`;
 			return dated;
 		}
 		// return this._date.getDate();
-		return this.date.getDate();
+		return this._date.getDate();
 	}
 
 	get dt() {
-		return this.date.getDate();
+		return this._date.getDate();
 	}
 
 	/**
@@ -109,7 +110,7 @@ class D {
 	 * @returns {String} returns the date of that object in the given format.
 	 */
 	format(dates) {
-		const m = moment(this.date).format(dates);
+		const m = moment(this._date).format(dates);
 		return m;
 	}
 

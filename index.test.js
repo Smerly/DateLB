@@ -55,10 +55,10 @@ test('Test dt', () => {
 
 // ---------------
 
-test('Test format', () => {
-	const e = new date.D('9/26/1965');
-	expect(e.format('y/m/d')).toBe('1965/9/26');
-});
+// test('Test format', () => {
+// 	const e = new date.D('9/26/1965');
+// 	expect(e.format('y/m/d')).toBe('1965/9/26');
+// });
 
 test('Test when', () => {
 	const e = new date.D('9/26/1965');
